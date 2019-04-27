@@ -1,0 +1,20 @@
+= render 'shared/header'
+
+= render 'shared/menu'
+
+= render 'shared/form'
+
+.main-content
+
+  = render 'shared/myprojects'
+
+  .projects
+    %p 案件一覧
+    %ul.projects__list
+      %li.projects__list__container
+        - @proposition.each do |proposition|
+          .projects__list
+            = link_to "#{proposition.name}", project_path(@project[1].id), method: :get
+            = link_to "#{proposition.description}", project_path(@project[1].id), method: :get
+
+
