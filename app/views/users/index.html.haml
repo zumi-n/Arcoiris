@@ -1,0 +1,11 @@
+.wrapper
+  = render 'shared/header'
+
+  = render 'shared/menu'
+
+  = render 'shared/form'
+
+  .main-content
+    = render 'shared/myprojects', projects: @projects
+    
+    = render 'shared/timeline'

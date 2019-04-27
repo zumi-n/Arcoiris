@@ -1,0 +1,36 @@
+.wrapper
+  = render 'shared/header'
+  = render 'shared/menu'
+  = render 'shared/form'
+
+  .all-projects-list
+    .all-projects-list__title
+      %h3 案件一覧
+
+    = link_to "編集", edit_project_path(@project.id), class: 'edit-btn'
+
+    = link_to "削除", project_path(@project.id), method: :delete, class: 'delete-btn'
+
+
+  .my-project-detail
+    .my-project-detail__title
+      %em 案件名：
+      = @project.title
+
+    .my-project-detail__phase
+      %em フェーズ：
+      = @project.phase
+
+    .my-project-detail__content
+      %em 内容：
+      = @project.content
+
+    .my-project-detail__comment
+    = form_with(model: @comment, local: true) do |f|
+      = f.label :コメント：
+      = f.text_field :comment
+      = f.submit "コメントする"
+
+  - if @project.comment.present?
+    .my-project-detail__others--comment
+      %em コメント一覧：

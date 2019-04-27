@@ -1,0 +1,89 @@
+.wrapper
+  = render 'shared/header'
+  = render 'shared/menu'
+  = render 'shared/form'
+
+  .all-projects-list
+    .all-projects-list__title
+      %h3 案件一覧
+    .all-projects-list__container
+      %ul.all-projects-list__container__title
+        %li.all-projects-list__container__title--name
+          %p 案件名
+        %li.all-projects-list__container__title--pre
+          %p 事前情報
+        %li.all-projects-list__container__title--consideration
+          %p 社内検討
+        %li.all-projects-list__container__title--approach
+          %p アプローチ
+        %li.all-projects-list__container__title--estimate
+          %p 見積り提出
+        %li.all-projects-list__container__title--pre-acceptance
+          %p 受注内定
+        %li.all-projects-list__container__title--acceptance
+          %p 受注決定
+        %li.all-projects-list__container__title--after-acceptance
+          %p 受注決定後
+
+      - @project.each do |project|
+        %ul.all-projects-list__container__content
+          = link_to project_path(project.id), method: :get do
+            %li.all-projects-list__container__content__name
+              = project.title
+          - if project.phase == "事前情報"
+            %li.all-projects-list__container__content__pre
+              %p 入力日時:#{project.created_at.strftime("%Y-%m-%d %H:%M")}
+              %p 内容:
+              = project.content
+          - else
+            %li.all-projects-list__container__content__pre
+
+          - if project.phase == "社内検討"
+            %li.all-projects-list__container__content__consideration
+              %p 入力日時:#{project.created_at.strftime("%Y-%m-%d %H:%M")}
+              %p 内容:
+              = project.content
+          - else
+            %li.all-projects-list__container__content__consideration
+
+          - if project.phase == "アプローチ"
+            %li.all-projects-list__container__content__approach
+              %p 入力日時:#{project.created_at.strftime("%Y-%m-%d %H:%M")}
+              %p 内容:
+              = project.content
+          - else
+            %li.all-projects-list__container__content__approach
+
+          - if project.phase == "見積り提出"
+            %li.all-projects-list__container__content__estimate
+              %p 入力日時:#{project.created_at.strftime("%Y-%m-%d %H:%M")}
+              %p 内容:
+              = project.content
+          - else
+            %li.all-projects-list__container__content__estimate
+
+
+          - if project.phase == "受注内定"
+            %li.all-projects-list__container__content__pre-acceptance
+              %p 入力日時:#{project.created_at.strftime("%Y-%m-%d %H:%M")}
+              %p 内容:
+              = project.content
+          - else
+            %li.all-projects-list__container__content__pre-acceptance
+
+
+          - if project.phase == "受注決定"
+            %li.all-projects-list__container__content__acceptance
+              %p 入力日時:#{project.created_at.strftime("%Y-%m-%d %H:%M")}
+              %p 内容:
+              = project.content
+          - else
+            %li.all-projects-list__container__content__acceptance
+
+          - if project.phase == "受注決定後"
+            %li.all-projects-list__container__content__after-acceptance
+              %p 入力日時:#{project.created_at.strftime("%Y-%m-%d %H:%M")}
+              %p 内容:
+              = project.content
+          - else
+            %li.all-projects-list__container__content__after-acceptance

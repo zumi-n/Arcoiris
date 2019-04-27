@@ -1,0 +1,38 @@
+.menu{
+  &__container{
+    width: 95%;
+    margin: 20px auto;
+    &__label{
+      width: 100%;
+      border-radius: 8px;
+      background-color: #E0FFFF;
+      border-bottom: 2px solid #20B2AA;
+      ul{
+        display: flex;
+        font-weight: bold;
+        li{
+          margin: 5px 15px;
+        }
+      }
+    }
+    &__content{
+      width: 90%;
+      height: 100%;
+      border-radius: 10px;
+      background-color: #E0FFFF;
+      margin: 0 auto;
+      border: thin solid #EEEEEE;
+      ul{
+        margin: 10px 0 0 10px;
+        li{
+          display: flex;
+          margin: 5px auto;
+          ol{
+            margin-right: 30px;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

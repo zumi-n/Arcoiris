@@ -1,0 +1,50 @@
+.main-content{
+  display: flex;
+}
+
+
+.timelines{
+  width: 75%;
+  height: 90%;
+  margin: 18px auto;
+  display: flex;
+  &__groupmember,
+  &__followers{
+    width: 48%;
+    height: 100%;
+    margin: 0 auto;
+    &--title{
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      color: white;
+      background-color: #20B2AA;
+      border: thin solid #EEEEEE;
+    }
+    &--content{
+      height: 150px;
+      background-color: white;
+      border-right: thin solid #EEEEEE;
+      border-left: thin solid #EEEEEE;
+      border-bottom: thin solid #EEEEEE;
+      display: flex;
+      position: relative;
+      .userface-icon{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: #DDDDDD;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+      .timeline-container{
+        height: 100%;
+        width: 410px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
