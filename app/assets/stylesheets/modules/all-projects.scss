@@ -1,0 +1,94 @@
+.all-projects-list{
+  margin: 15px 35px;
+  &__title{
+    height: 50px;
+    width: 150px;
+    line-height: 30px;
+    h3{
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 10px;
+    }
+  }
+  &__container{
+    margin-top: 20px;
+    &__title{
+      display: flex;
+      justify-content: space-around;
+      border: 2px solid #CCCCCC;
+    
+      font-size: 16px;
+      &--pre{
+        color: red;
+      }
+      &--consideration{
+        color: #FF4F02;
+      }
+      &--approach{
+        color: #FFFF00;
+      }
+      &--estimate{
+        color: #00FF00;
+      }
+      &--pre-acceptance{
+        color: #00FFFF;
+      }
+      &--acceptance{
+        color: #0000FF;
+      }
+      &--after-acceptance{
+        color: #800080
+      }
+    }
+    &__content{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px;
+      border-bottom: thin solid #EEEEEE;
+      &__name,&__pre,&__consideration,
+      &__approach,&__estimate,&__pre-acceptance,
+      &__acceptance,&__after-acceptance,&__blank{
+        height: 140px;
+        width: 140px;
+        margin: 15px 0 15px;
+        font-size: 11px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      &__name{
+        background-color: #000088;
+        color: white;
+        line-height: 140px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      &__pre{
+        background-color: #FFE4E1;
+      }
+      &__consideration{
+        background-color: #FFEFD5;
+      }
+      &__approach{
+        background-color: #FFFFE0;
+      }
+      &__estimate{
+        background-color: #CBFFD3;
+      }
+      &__pre-acceptance{
+        background-color: #CCFFFF;
+      }
+      &__acceptance{
+        background-color: #F0F8FF;
+      }
+      &__after-acceptance{
+        background-color: #E6E6FA;
+      }
+      // &__blank{
+      //   background-color: white;
+      // }
+    }
+  }
+}

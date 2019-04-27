@@ -1,0 +1,24 @@
+= render 'shared/header'
+
+= render 'shared/menu'
+
+= render 'shared/form'
+
+.main-content
+
+  = render 'shared/myprojects'
+  .form
+    = form_with(model: @project, local: true) do |f|
+      .project-name
+        = f.label :案件名：
+        = f.text_field :title
+
+      .phase
+        = f.label :フェーズ：
+        = f.select :phase, ["事前情報","社内検討","アプローチ","見積り提出","受注内定","受注決定","受注決定後"], {prompt: "---"}
+
+      .content
+        = f.label :内容：
+        = f.text_area :content
+
+      = f.submit "登録"

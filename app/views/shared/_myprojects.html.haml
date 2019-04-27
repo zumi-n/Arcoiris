@@ -1,0 +1,17 @@
+.myprojects-list
+  .myprojects-list__label
+    %strong あなたの案件一覧
+
+  .myprojects-list__content
+    .myprojects-list__content--title
+      %p 案件名
+      %p ／
+      %p フェーズ
+    %ul
+      %li
+      - current_user.projects.each do |project|
+        %ol
+        = link_to project_path(project.id), method: :get do
+          = project.title
+          = "／"
+          = project.phase
