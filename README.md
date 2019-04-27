@@ -74,3 +74,16 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_many :projects
+
+
+## propositions table
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false , foreign_key: true|
+|name|string|null: false|
+|comment|text||
+
+### Association
+- belongs_to :user
+- has_many :projects
