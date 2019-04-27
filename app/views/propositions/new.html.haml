@@ -1,0 +1,21 @@
+= render 'shared/header'
+
+= render 'shared/menu'
+
+= render 'shared/form'
+
+.main-content
+
+  = render 'shared/myprojects'
+
+  .proposition-form
+    = form_with(model: @proposition, local: true) do |f|
+      .proposition-name
+        = f.label :案件名：
+        = f.text_field :name
+
+      .proposition-description
+        = f.label :内容：
+        = f.text_area :description
+
+      = f.submit "登録"

@@ -5,7 +5,7 @@
 
   .all-projects-list
     .all-projects-list__title
-      %h3 案件一覧
+      %h3 業務日報
 
     = link_to "編集", edit_project_path(@project.id), class: 'edit-btn'
 
@@ -14,7 +14,7 @@
 
   .my-project-detail
     .my-project-detail__title
-      %em 案件名：
+      %em 業務日報名：
       = @project.title
 
     .my-project-detail__phase
