@@ -45,8 +45,7 @@ Things you may want to cover:
 |joined_year|date||
 
 ### Association
-- has_many :projects
-- has_many :comments
+- belongs_to :user
 
 
 ## projects table

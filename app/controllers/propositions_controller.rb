@@ -2,7 +2,6 @@ class PropositionsController < ApplicationController
 
   def index
     @proposition = Proposition.where(user_id: current_user.id).order("created_at ASC")
-    @project = Project.where(user_id: current_user.id).order("created_at ASC")
   end
 
   def show
@@ -23,11 +22,19 @@ class PropositionsController < ApplicationController
     end
   end
 
+  def edit
+    @proposition = Proposition.find(params[:id])
+  end
+
   def destroy
     proposition = Proposition.find(params[:id])
     if proposition.user_id == current_user.id
       proposition.destroy
     end
+  end
+
+  def list
+    @propositions = Proposition.where(user_id: current_user.id)
   end
 
   private

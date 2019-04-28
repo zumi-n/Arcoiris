@@ -1,14 +1,8 @@
 class ProjectsController < ApplicationController
 
-  def index
-    @proposition = Proposition.where(user_id: current_user.id).order("created_at ASC")
-    @project = Project.where(user_id: current_user.id).order("created_at ASC")
-  end
-
   def show
-    @proposition = Proposition.find(params[:proposition_id])
     @project = Project.find(params[:id])
-
+    @proposition = @project.proposition
   end
 
   def new
@@ -26,13 +20,13 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @proposition = Proposition.find(params[:proposition_id])
     @project = Project.find(params[:id])
+    @proposition = @project.proposition
   end
 
   def update
-    @proposition = Proposition.find(params[:proposition_id])
     @project = Project.find(params[:id])
+    @proposition = @project.proposition
     if @project.update(project_params)
       redirect_to root_path
     else
@@ -41,6 +35,11 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    @project = Project.find(params[:id])
+    @proposition = @project.proposition
+    if @proposition.user_id == current_user.id
+      @project.destroy
+    end
   end
 
   private
