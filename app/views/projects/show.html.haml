@@ -7,9 +7,9 @@
     .all-projects-list__title
       %h3 業務日報
 
-    = link_to "編集", edit_project_path(@project.id), class: 'edit-btn'
+    = link_to "編集", edit_proposition_project_path(@proposition.id, @project.id), class: 'edit-btn'
 
-    = link_to "削除", project_path(@project.id), method: :delete, class: 'delete-btn'
+    = link_to "削除", proposition_project_path(@proposition.id, @project.id), method: :delete, class: 'delete-btn'
 
 
   .my-project-detail

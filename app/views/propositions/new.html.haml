@@ -6,7 +6,7 @@
 
 .main-content
 
-  = render 'shared/myprojects'
+  = render 'shared/myprojects', propostions: @propostions
 
   .proposition-form
     = form_with(model: @proposition, local: true) do |f|

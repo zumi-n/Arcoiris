@@ -27,7 +27,7 @@
 
       - @project.each do |project|
         %ul.all-projects-list__container__content
-          = link_to project_path(project.id), method: :get do
+          = link_to proposition_projects_path(project, :id), method: :get do
             %li.all-projects-list__container__content__name
               = project.title
           - if project.phase == "事前情報"

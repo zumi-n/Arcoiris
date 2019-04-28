@@ -1,0 +1,22 @@
+.wrapper
+  = render 'shared/header'
+  = render 'shared/menu'
+  = render 'shared/form'
+
+  %p 案件名：#{@proposition.name}
+  %p 内容：#{@proposition.description}
+
+  %p
+  = link_to "[案件編集]", edit_proposition_path(@proposition.id)
+  = link_to "[案件削除]", proposition_path(@proposition.id), method: :delete
+  = link_to "[業務日報作成]", new_proposition_project_path(@proposition.id)
+
+  %p 業務日報一覧
+  - if @proposition.projects.present?
+    - @proposition.projects.each do |project|
+      .projects-all
+      = link_to "#{project.title}", proposition_project_path(@proposition.id, project.id)
+      = project.phase
+      %p 作成日時：#{project.created_at.strftime("%Y-%m-%d %H:%M ")}
+      = link_to "[業務日報編集]", edit_proposition_project_path(@proposition.id, project.id)
+      = link_to "[業務日報削除]", proposition_project_path(@proposition.id, project.id), method: :delete

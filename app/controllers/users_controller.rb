@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @propositions = Proposition.order("created_at DESC")
     @projects = Project.order("created_at DESC")
   end
 
