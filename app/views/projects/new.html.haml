@@ -6,9 +6,12 @@
 
 .main-content
 
-  = render 'shared/myprojects'
+  = render 'shared/myprojects', propostions: @propostions
   .form
-    = form_with(model: @project, local: true) do |f|
+
+    %h2 案件名： #{@proposition.name}
+
+    = form_with(model: [@proposition, @project], local: true) do |f|
       .project-name
         = f.label :業務日報名：
         = f.text_field :title

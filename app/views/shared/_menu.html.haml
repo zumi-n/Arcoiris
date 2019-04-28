@@ -9,9 +9,7 @@
         %li
           = link_to "案件一覧", propositions_path, class: 'menu-btn'
         %li
-          = link_to "業務日報入力", new_project_path, class: 'menu-btn'
-        %li
-          = link_to "フェーズ一覧", projects_path, class: 'menu-btn'
+          = link_to "フェーズ一覧", proposition_projects_path(:id), class: 'menu-btn'
         %li
           = link_to "フォロワー一覧", root_path, class: 'menu-btn'
         %li

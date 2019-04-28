@@ -5,13 +5,10 @@
   .myprojects-list__content
     .myprojects-list__content--title
       %p 案件名
-      %p ／
-      %p フェーズ
     %ul
       %li
-      - current_user.projects.each do |project|
-        %ol
-        = link_to project_path(project.id), method: :get do
-          = project.title
-          = "／"
-          = project.phase
+      - if @propositions.present?
+        - @propositions.each do |proposition|
+          %ol
+          = link_to proposition_path(proposition), method: :get do
+            = proposition.name

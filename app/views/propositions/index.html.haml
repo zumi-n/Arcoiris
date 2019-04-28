@@ -4,17 +4,16 @@
 
 = render 'shared/form'
 
-.main-content
+.projects
+  %p 案件一覧
+  %ul.projects__list
+    %li.projects__list__container
+      - @proposition.each do |proposition|
+        .projects__list
+          = link_to "#{proposition.name}", proposition_path(proposition.id), method: :get
+          = link_to "#{proposition.description}", proposition_path(proposition.id), method: :get
+        = link_to "[詳細]", proposition_path(proposition.id), method: :get
 
-  = render 'shared/myprojects'
-
-  .projects
-    %p 案件一覧
-    %ul.projects__list
-      %li.projects__list__container
-        - @proposition.each do |proposition|
-          .projects__list
-            = link_to "#{proposition.name}", project_path(@project[1].id), method: :get
-            = link_to "#{proposition.description}", project_path(@project[1].id), method: :get
-
+        = link_to "[業務日報入力]", new_proposition_project_path(proposition), class: 'menu-btn'
+        = link_to "[案件削除]", proposition_path(proposition.id), method: :delete, class: 'menu-btn'
 
