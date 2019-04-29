@@ -1,0 +1,47 @@
+.all-projects-list{
+  height: 400px;
+  width: 700px;
+  margin: 20px auto;
+  background-color: #EEEEEE;
+  &__title{
+    width: 100%;
+    h3{
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+  .project-edit-form{
+    text-align: center;
+    margin: 20px auto;
+    &__name{
+      text-align: center;
+      margin-bottom: 20px;
+      input#project_title{
+        width: 40%;
+      }
+    }
+    &__phase{
+      margin-left: 170px;
+      margin-bottom: 20px;
+    }
+    &__content{
+      text-align: center;
+      margin-bottom: 20px;
+      textarea#project_content{
+        width: 70%;
+        height: 150px;
+      }
+    }
+    &__btn{
+      margin: 30px auto;
+      text-align: center;
+    }
+  }
+}
+
+
+
+
+

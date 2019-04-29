@@ -9,7 +9,6 @@ class PropositionsController < ApplicationController
   end
 
   def new
-    @propositions = Proposition.order("created_at DESC")
     @proposition = Proposition.new
   end
 
@@ -24,6 +23,15 @@ class PropositionsController < ApplicationController
 
   def edit
     @proposition = Proposition.find(params[:id])
+  end
+
+  def update
+    @proposition = Proposition.find(params[:id])
+    if @proposition.update(proposition_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy

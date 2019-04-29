@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @proposition = Proposition.find(params[:proposition_id])
     @project = Project.new(project_params)
     if @project.save
       redirect_to root_path

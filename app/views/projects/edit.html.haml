@@ -5,24 +5,21 @@
 
   .all-projects-list
     .all-projects-list__title
-      %h3 案件一覧
+      %h3 業務日報編集
 
-    .form
+    .project-edit-form
     = form_with(model: [@proposition, @project], local: true) do |f|
-      .project-name
-        = f.label :案件名：
+      .project-edit-form__name
+        = f.label :業務日報：
         = f.text_field :title
 
-      .phase
+      .project-edit-form__phase
         = f.label :フェーズ：
         = f.select :phase, ["事前情報","社内検討","アプローチ","見積り提出","受注内定","受注決定","受注決定後"], {prompt: "---"}
 
-      .content
+      .project-edit-form__content
         = f.label :内容：
         = f.text_area :content
 
-      = f.submit "登録"
-
-      - if @project.comments.present?
-        .my-project-detail__others--comment
-          %em コメント一覧：
+      .project-edit-form__btn
+        = f.submit "登録"

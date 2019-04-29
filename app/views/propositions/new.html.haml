@@ -8,14 +8,19 @@
 
   = render 'shared/myprojects', propostions: @propostions
 
-  .proposition-form
-    = form_with(model: @proposition, local: true) do |f|
-      .proposition-name
-        = f.label :案件名：
-        = f.text_field :name
+  .proposition-container
+    .proposition-title
+    %h1 案件登録画面
 
-      .proposition-description
-        = f.label :内容：
-        = f.text_area :description
+    .proposition-form
+      = form_with(model: @proposition, local: true) do |f|
+        .proposition-name
+          = f.label :案件名：
+          = f.text_field :name
 
-      = f.submit "登録"
+        .proposition-description
+          = f.label :内容：
+          = f.text_area :description
+
+        .proposition-btn
+          = f.submit "登録"
