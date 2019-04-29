@@ -3,20 +3,16 @@
   = render 'shared/menu'
   = render 'shared/form'
 
+  .proposition-edit-form
+    %h2 案件編集ページ
+    = form_with(model: [@proposition], local: true) do |f|
+      .proposition-edit-form__name
+        = f.label :案件名：
+        = f.text_field :name
 
-  案件の編集・削除ページ
-  .form
-  = form_with(model: [@proposition], local: true) do |f|
-    .proposition-name
-      = f.label :案件名：
-      = f.text_field :name
+      .proposition-edit-form__description
+        = f.label :内容：
+        = f.text_area :description
 
-    .description
-      = f.label :内容：
-      = f.text_area :description
-
-    = f.submit "登録"
-
-    %p
-    = link_to "[案件削除]", proposition_path(@proposition.id), method: :delete
-
+      .proposition-edit-form__btn
+        = f.submit "登録"

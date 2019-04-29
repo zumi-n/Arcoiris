@@ -3,89 +3,58 @@
   = render 'shared/menu'
   = render 'shared/form'
 
-  .all-projects-list
-    .all-projects-list__title
+  .all-propositions-lists
+    .all-propositions-lists__title
       %h3 案件一覧
-    .all-projects-list__container
-      %ul.all-projects-list__container__title
-        %li.all-projects-list__container__title--name
+    .all-propositions-lists__container
+      %ul.all-propositions-lists__container__title
+        %li.all-propositions-lists__container__title--name
           %p 案件名
-        %li.all-projects-list__container__title--pre
+        %li.all-propositions-lists__container__title--pre
           %p 事前情報
-        %li.all-projects-list__container__title--consideration
+        %li.all-propositions-lists__container__title--consideration
           %p 社内検討
-        %li.all-projects-list__container__title--approach
+        %li.all-propositions-lists_container__title--approach
           %p アプローチ
-        %li.all-projects-list__container__title--estimate
+        %li.all-propositions-lists__container__title--estimate
           %p 見積り提出
-        %li.all-projects-list__container__title--pre-acceptance
+        %li.all-propositions-lists__container__title--pre-acceptance
           %p 受注内定
-        %li.all-projects-list__container__title--acceptance
+        %li.all-propositions-lists__container__title--acceptance
           %p 受注決定
-        %li.all-projects-list__container__title--after-acceptance
+        %li.all-propositions-lists__container__title--after-acceptance
           %p 受注決定後
 
 
-          - @propositions.each do |proposition|
-            %ul.all-projects-list__container__content
-              %li.all-projects-list__container__content__name
-                = proposition.name
-                
-                - if proposition.projects.phase == "事前情報"
-                  %li.all-projects-list__container__content__pre
-                    %p 入力日時:#{proposition.projects.first.created_at.strftime("%Y-%m-%d %H:%M")}
-                    %p 内容:
-                    = proposition.projects.first.content
-                - else
-                  %li.all-projects-list__container__content__pre
-      
-                - if proposition.projects.first.phase == "社内検討"
-                  %li.all-projects-list__container__content__consideration
-                    %p 入力日時:#{proposition.projects.first.created_at.strftime("%Y-%m-%d %H:%M")}
-                    %p 内容:
-                    = proposition.projects.first.content
-                - else
-                  %li.all-projects-list__container__content__consideration
-      
-                - if proposition.projects.first.phase == "アプローチ"
-                  %li.all-projects-list__container__content__approach
-                    %p 入力日時:#{proposition.projects.first.created_at.strftime("%Y-%m-%d %H:%M")}
-                    %p 内容:
-                    = proposition.projects.first.content
-                - else
-                  %li.all-projects-list__container__content__approach
-      
-                - if proposition.projects.first.phase == "見積り提出"
-                  %li.all-projects-list__container__content__estimate
-                    %p 入力日時:#{proposition.projects.first.created_at.strftime("%Y-%m-%d %H:%M")}
-                    %p 内容:
-                    = proposition.projects.first.content
-                - else
-                  %li.all-projects-list__container__content__estimate
-      
-      
-                - if proposition.projects.first.phase == "受注内定"
-                  %li.all-projects-list__container__content__pre-acceptance
-                    %p 入力日時:#{proposition.projects.first.created_at.strftime("%Y-%m-%d %H:%M")}
-                    %p 内容:
-                    = proposition.projects.first.content
-                - else
-                  %li.all-projects-list__container__content__pre-acceptance
-      
-      
-                - if proposition.projects.first.phase == "受注決定"
-                  %li.all-projects-list__container__content__acceptance
-                    %p 入力日時:#{proposition.projects.first.created_at.strftime("%Y-%m-%d %H:%M")}
-                    %p 内容:
-                    = proposition.projects.first.content
-                - else
-                  %li.all-projects-list__container__content__acceptance
-      
-                - if proposition.projects.first.phase == "受注決定後"
-                  %li.all-projects-list__container__content__after-acceptance
-                    %p 入力日時:#{proposition.projects.first.created_at.strftime("%Y-%m-%d %H:%M")}
-                    %p 内容:
-                    = proposition.projects.first.content
-                - else
-                  %li.all-projects-list__container__content__after-acceptance
-      
+      - @propositions.each do |proposition|
+        %ul.all-propositions-lists__container__content
+          %li.all-propositions-lists__container__content__name
+            = proposition.name
+
+          %li.all-propositions-lists__container__content__pre
+            %p 入力日時:
+            %p 内容:
+
+          %li.all-propositions-lists__container__content__consideration
+            %p 入力日時:
+            %p 内容:
+
+          %li.all-propositions-lists__container__content__approach
+            %p 入力日時:
+            %p 内容:
+
+          %li.all-propositions-lists__container__content__estimate
+            %p 入力日時
+            %p 内容:
+
+          %li.all-propositions-lists__container__content__pre-acceptance
+            %p 入力日時:
+            %p 内容:
+
+          %li.all-propositions-lists__container__content__acceptance
+            %p 入力日時:
+            %p 内容:
+
+          %li.all-propositions-lists__container__content__after-acceptance
+            %p 入力日時:
+            %p 内容:

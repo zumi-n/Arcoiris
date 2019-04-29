@@ -1,0 +1,28 @@
+.projects{
+  width: 800px;
+  background-color: #EEEEEE;
+  margin: 30px auto;
+  p{
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #DDDDDD;
+  }
+  &__list{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    a{
+      margin: 15px;
+      font-size: 16px;
+    }
+    a:hover{
+      color: #0000FF;
+      border-bottom: 1px solid #0000FF;
+    }
+  }
+  &__btn{
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 30px;
+  }
+}

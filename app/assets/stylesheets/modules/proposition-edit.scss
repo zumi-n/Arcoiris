@@ -1,0 +1,38 @@
+.proposition-edit-form{
+  height: 300px;
+  width: 700px;
+  margin: 20px auto;
+  background-color: #EEEEEE;
+  h2{
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  &__name{
+    text-align: center;
+    margin-bottom: 20px;
+    input#proposition_name{
+      width: 40%;
+    }
+  }
+  &__description{
+    text-align: center;
+    margin-bottom: 20px;
+    textarea#proposition_description{
+      width: 70%;
+      height: 100px;
+      label{
+        display: absolute;
+        top: 0;
+      }
+    }
+  }
+  &__btn{
+    margin: 20px auto;
+    text-align: center;
+  }
+  a{
+    text-align: right;
+  }
+}

@@ -1,20 +1,19 @@
 .myprojects-list{
-  height: 600px;
-  width: 300px;;
+  width: 200px;
   border-radius: 8px;
   padding-top: 20px;
-  margin-left: 20px;
+  margin-left: 30px;
   &__label{
-    width: 90%;
+    width: 180px;
     height: 30px;
     background-color: #20B2AA;
     margin: 0 auto;
     border-radius: 10px;
     border: thin solid #EEEEEE;
-    strong{
+    p{
       color: white;
       line-height: 30px;
-      padding-left: 20px;
+      text-align: center;
     }
   }
   &__content{
@@ -26,27 +25,26 @@
     border: thin solid #EEEEEE;
     &--title{
       font-weight: bold;
-      display: flex;
       justify-content: space-between;
-      padding: 10px 35px;
+      padding: 10px 10px;
       border-bottom: thin solid #DDDDDD;
+      text-align: center;
       p{
         size: 20px;
       }
     }
     ul{
-      margin: 10px 0 10px 10px;
+      margin-top: 10px;
+      text-align: center;
       a:hover{
         color: #0000FF;
         border-bottom: 1px solid #0000FF;
         font-weight: bold;
       }
       li{
-        display: flex;
-        margin: 5px auto;
         justify-content: space-between;
         ol{
-          margin-right: 30px;
+          margin: 30px;
           padding-bottom: 20px;
           text-decoration: underline;
         }

@@ -1,0 +1,49 @@
+.proposition-details{
+  width: 900px;
+  background-color: #EEEEEE;
+  margin: 30px auto;
+  &__title{
+    padding: 10px;
+    text-align: center;
+    h2{
+      font-size: 26px;
+      font-weight: bold;
+      border-bottom: 2px solid #DDDDDD;
+    }
+    p{
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    &__links{
+      margin-top: 10px;
+      border-bottom: 1px solid #DDDDDD;
+      padding-bottom: 10px;
+      a{
+        margin: 15px;
+      }
+      a:hover{
+        color: #0000FF;
+        border-bottom: 1px solid #0000FF;
+      }
+    }
+  }
+  &__content{
+    padding: 10px;
+    text-align: center;
+    h2{
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: 2px solid #DDDDDD;
+    }
+    .projects-all{
+      margin: 10px 0;
+      a, em, #text{
+        margin-right: 10px
+      }
+      a:hover{
+        color: #0000FF;
+        border-bottom: 1px solid #0000FF;
+      }
+    }
+  }
+}
