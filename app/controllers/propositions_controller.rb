@@ -10,6 +10,7 @@ class PropositionsController < ApplicationController
 
   def new
     @proposition = Proposition.new
+    @propositions = Proposition.order("created_at DESC")
   end
 
   def create

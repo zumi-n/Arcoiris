@@ -1,26 +1,26 @@
-= render 'shared/header'
+.wrapper
+  = render 'shared/header'
 
-= render 'shared/menu'
+  = render 'shared/menu'
 
-= render 'shared/form'
+  = render 'shared/form'
 
-.main-content
+  .main-content
+    = render 'shared/myprojects', propostions: @propostions
 
-  = render 'shared/myprojects', propostions: @propostions
+    .proposition-container
+      .proposition-title
+      %h1 案件登録画面
 
-  .proposition-container
-    .proposition-title
-    %h1 案件登録画面
+      .proposition-form
+        = form_with(model: @proposition, local: true) do |f|
+          .proposition-name
+            = f.label :案件名：
+            = f.text_field :name
 
-    .proposition-form
-      = form_with(model: @proposition, local: true) do |f|
-        .proposition-name
-          = f.label :案件名：
-          = f.text_field :name
+          .proposition-description
+            = f.label :内容：
+            = f.text_area :description
 
-        .proposition-description
-          = f.label :内容：
-          = f.text_area :description
-
-        .proposition-btn
-          = f.submit "登録"
+          .proposition-btn
+            = f.submit "登録"
