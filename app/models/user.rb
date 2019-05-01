@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :propositions, dependent: :destroy
+  has_many :group_users
+  has_many :groups, through: :group_users
   has_one :profile
 end

@@ -11,6 +11,12 @@
         %li
           = link_to "フェーズ一覧", lists_path, class: 'menu-btn'
         %li
+          = link_to "グループ作成", new_group_path, class: 'menu-btn'
+        %li
+          = link_to "グループ詳細", group_path(:id), class: 'menu-btn'
+        %li
+          = link_to "グループ編集", edit_group_path(:id), class: 'menu-btn'
+        %li
           = link_to "フォロワー一覧", root_path, class: 'menu-btn'
         %li
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'menu-btn'

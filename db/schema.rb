@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_115942) do
+ActiveRecord::Schema.define(version: 2019_05_01_043319) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2019_04_27_115942) do
     t.text "content"
     t.index ["project_id"], name: "index_comments_on_project_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -37,6 +52,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_115942) do
     t.string "title", null: false
     t.string "phase", null: false
     t.text "content", null: false
+    t.bigint "proposition_id", null: false
+    t.index ["proposition_id"], name: "index_projects_on_proposition_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -64,6 +81,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_115942) do
 
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "propositions", "users"
 end
