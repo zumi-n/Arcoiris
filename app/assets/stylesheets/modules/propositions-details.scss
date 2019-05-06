@@ -3,12 +3,12 @@
   background-color: #EEEEEE;
   margin: 30px auto;
   &__title{
-    padding: 10px;
     text-align: center;
     h2{
       font-size: 26px;
       font-weight: bold;
-      border-bottom: 2px solid #DDDDDD;
+      background-color: #20B2AA;
+      color: white;
     }
     p{
       font-size: 16px;
@@ -28,12 +28,11 @@
     }
   }
   &__content{
-    padding: 10px;
     text-align: center;
     h2{
       font-size: 22px;
       font-weight: bold;
-      border-bottom: 2px solid #DDDDDD;
+      background-color: #E0FFFF;
     }
     .projects-all{
       margin: 10px 0;
