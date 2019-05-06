@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :projects
   end
   get 'lists' => 'propositions#list'
+  resources :groups, only: [:show, :new, :create, :edit, :update]
   resources :users, only: [:index, :edit, :update]
 end
