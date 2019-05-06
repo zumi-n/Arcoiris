@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
 
+
   def show
     @project = Project.find(params[:id])
     @proposition = @project.proposition
@@ -46,6 +47,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :content, :phase, :proposition_id).merge(proposition_id: params[:proposition_id], user_id: current_user.id)
+    params.require(:project).permit(:title, :content, :phase, :proposition_id).merge(proposition_id: params[:proposition_id])
   end
 end

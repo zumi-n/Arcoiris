@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_051012) do
+ActiveRecord::Schema.define(version: 2019_05_06_062428) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,13 +40,11 @@ ActiveRecord::Schema.define(version: 2019_05_06_051012) do
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.string "title", null: false
     t.string "phase", null: false
     t.text "content", null: false
+    t.string "title", null: false
     t.bigint "proposition_id", null: false
     t.index ["proposition_id"], name: "index_projects_on_proposition_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "propositions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,6 +73,6 @@ ActiveRecord::Schema.define(version: 2019_05_06_051012) do
   add_foreign_key "comments", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
-  add_foreign_key "projects", "users"
+  add_foreign_key "projects", "propositions"
   add_foreign_key "propositions", "users"
 end
