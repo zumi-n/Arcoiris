@@ -7,3 +7,27 @@
 
   .main-content
     = render 'shared/myprojects', propostions: @propostions
+
+    .projects-new
+      .projects-new__title
+        %h2 業務日報作成
+
+      .projects-new__form
+        %h3 案件名： #{@proposition.name}
+
+        = form_with(model: [@proposition, @project], local: true) do |f|
+          .projects-new__form__name
+            = f.label :業務日報名：
+            = f.text_field :title
+
+          .projects-new__form__phase
+            = f.label :フェーズ：
+            = f.select :phase, ["事前情報","社内検討","アプローチ","見積り提出","受注内定","受注決定","受注決定後"], {prompt: "---"}
+
+          .projects-new__form__content
+            = f.label :内容：
+            = f.text_area :content
+
+          .projects-new__form__btn
+            = f.submit "登録"
+

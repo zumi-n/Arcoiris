@@ -13,9 +13,9 @@ class ProjectsController < ApplicationController
 
   def create
     @proposition = Proposition.find(params[:proposition_id])
-    @project = Project.new(project_params)
+    @project = @proposition.projects.new(project_params)
     if @project.save
-      redirect_to root_path
+      redirect_to proposition_path(@proposition.id)
     else
       render 'new'
     end
@@ -47,6 +47,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :content, :phase, :proposition_id).merge(proposition_id: params[:proposition_id])
+    params.require(:project).permit(:title, :content, :phase, :proposition_id).merge(proposition_id: params[:proposition_id],  user_id: current_user.id)
   end
 end

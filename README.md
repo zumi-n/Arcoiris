@@ -53,6 +53,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false , foreign_key: true|
+|proposition_id|references|null: false , foreign_key: true|
 |title|string|null:false|
 |content|text||
 |phase|string|null:false|
