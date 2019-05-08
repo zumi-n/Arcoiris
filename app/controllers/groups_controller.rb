@@ -1,11 +1,14 @@
 class GroupsController < ApplicationController
 
+  def index
+    @groups = Group.all
+  end
+
   def show
     @group = Group.find(params[:id])
   end
 
   def new
-    @propositions = Proposition.order("created_at DESC")
     @group = Group.new
     @group.users << current_user
   end
@@ -13,7 +16,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_ path, notice: 'グループを作成しました'
+      redirect_to root_path
     else
       render :new
     end
@@ -24,17 +27,23 @@ class GroupsController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to root_path(@group), notice: 'グループを編集しました'
+      redirect_to groups_path, notice: 'グループを編集しました'
     else
       render :edit
     end
   end
 
+  def destroy
+    group = Group.find(params[:id])
+     group.destroy
+  end
+
   private
 
   def group_params
-    params.require(:group).permit(:name, { :user_ids => []} )
+    params.require(:group).permit(:name, :content, { :user_ids => []} )
   end
 
 end

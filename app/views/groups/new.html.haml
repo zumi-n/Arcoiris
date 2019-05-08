@@ -5,29 +5,27 @@
 
   = render 'shared/form'
 
-  .main-content
-    = render 'shared/myprojects', propostions: @propostions
+  .groups-new
+    .groups-new__title
+      %h2 グループ作成
 
-    .projects-new
-      .projects-new__title
-        %h2 業務日報作成
+    .groups-new__form
+      = form_with(model: @group, local: true) do |f|
+        - if @group.errors.any?
+          .groups-new__form__errors
+            %h3= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
+            %ul
+              - @group.errors.each do |message|
+                %li= message
 
-      .projects-new__form
-        %h3 案件名： #{@proposition.name}
+        .groups-new__form__name
+          = f.label :グループ名：
+          = f.text_field :name
 
-        = form_with(model: [@proposition, @project], local: true) do |f|
-          .projects-new__form__name
-            = f.label :業務日報名：
-            = f.text_field :title
+        .groups-new__form__content
+          = f.label :内容：
+          = f.text_area :content
 
-          .projects-new__form__phase
-            = f.label :フェーズ：
-            = f.select :phase, ["事前情報","社内検討","アプローチ","見積り提出","受注内定","受注決定","受注決定後"], {prompt: "---"}
-
-          .projects-new__form__content
-            = f.label :内容：
-            = f.text_area :content
-
-          .projects-new__form__btn
-            = f.submit "登録"
+        .groups-new__form__btn
+          = f.submit "登録"
 

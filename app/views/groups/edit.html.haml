@@ -1,0 +1,18 @@
+.wrapper
+  = render 'shared/header'
+  = render 'shared/menu'
+  = render 'shared/form'
+
+  .group-edit-form
+    %h2 グループ編集ページ
+    = form_with(model: @group, local: true) do |f|
+      .group-edit-form__name
+        = f.label :グループ名：
+        = f.text_field :name
+
+      .group-edit-form__content
+        = f.label :内容：
+        = f.text_area :content
+
+      .proposition-edit-form__btn
+        = f.submit "登録"
