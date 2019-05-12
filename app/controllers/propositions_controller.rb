@@ -1,7 +1,7 @@
 class PropositionsController < ApplicationController
 
   def index
-    @proposition = Proposition.where(user_id: current_user.id).order("created_at ASC")
+    @proposition = Proposition.where(user_id: current_user.id).order("created_at DESC")
   end
 
   def show
@@ -10,7 +10,7 @@ class PropositionsController < ApplicationController
 
   def new
     @proposition = Proposition.new
-    @propositions = Proposition.order("created_at DESC")
+    @propositions = Proposition.where(user_id: current_user.id).order("created_at DESC")
   end
 
   def create

@@ -18,7 +18,6 @@
   }
   &__content{
     width: 90%;
-    height: 100%;
     border-radius: 10px;
     background-color: #E0FFFF;
     margin: 0 auto;
@@ -35,6 +34,7 @@
     }
     ul{
       margin-top: 10px;
+      margin-bottom: 10px;
       text-align: center;
       a:hover{
         color: #0000FF;

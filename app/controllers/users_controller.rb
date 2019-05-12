@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @propositions = Proposition.order("created_at DESC")
-    @projects = Project.order("created_at DESC")
+    @propositions = Proposition.where(user_id: current_user.id).order("created_at DESC")
+    @projects = Project.where(user_id: current_user.id).order("created_at DESC")
   end
 
   def edit

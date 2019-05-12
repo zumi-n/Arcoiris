@@ -36,17 +36,6 @@ Things you may want to cover:
 - has_many :projects
 - has_many :comments
 
-## profiles table
-
-|Column|Type|Options|
-|------|----|-------|
-|department|string|null:false|
-|age|integer||
-|joined_year|date||
-
-### Association
-- belongs_to :user
-
 
 ## projects table
 
@@ -87,3 +76,27 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_many :projects
+
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|content|text||
+
+### Association
+- has_many :users, through group_users
+- has_many :group_users
+
+
+## group_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references||null: false, foreign_key: true|
+|group_id|references||null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :group

@@ -1,0 +1,23 @@
+.wrapper
+  = render 'shared/header'
+  = render 'shared/menu'
+  = render 'shared/form'
+
+  .groups
+    %p.groups--all-lists あなたのグループ一覧
+    %ul.groups__list
+      %li.groups__list__container
+        - @groups.each do |group|
+          .groups__list
+            = link_to "グループ名：#{group.name}", group_path(group.id)
+            %p 内容：#{group.content}
+            %p メンバー：
+            - group.users.each do |user|
+              .groups__list__user
+                %p #{user.name}
+
+          .groups__btn
+            = link_to "[グループ編集]", edit_group_path(group.id)
+            = link_to "[グループ削除]", group_path(group.id), method: :delete
+
+
