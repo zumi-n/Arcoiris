@@ -11,6 +11,10 @@
           .groups__list
             = link_to "グループ名：#{group.name}", group_path(group.id)
             %p 内容：#{group.content}
+            %p メンバー：
+            - group.users.each do |user|
+              .groups__list__user
+                %p #{user.name}
 
           .groups__btn
             = link_to "[グループ編集]", edit_group_path(group.id)

@@ -1,5 +1,4 @@
 .groups-new{
-  height: 400px;
   width: 700px;
   margin: 20px auto;
   background-color: #EEEEEE;
@@ -38,9 +37,26 @@
         height: 100px;
       }
     }
+    &__member{
+      input.groups-new__form__input{
+        width: 40%;
+      }
+      &:after {
+        content: "";
+      }
+      .group-member__btn{
+        cursor: pointer;
+      }
+    }
+    &__member.clearfix{
+      .group-member.clearfix{
+        justify-content: center;
+      }
+    }
     &__btn{
       margin: 30px auto;
       text-align: center;
     }
   }
 }
+

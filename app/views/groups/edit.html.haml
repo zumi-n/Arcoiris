@@ -3,16 +3,53 @@
   = render 'shared/menu'
   = render 'shared/form'
 
-  .group-edit-form
-    %h2 グループ編集ページ
-    = form_with(model: @group, local: true) do |f|
-      .group-edit-form__name
-        = f.label :グループ名：
-        = f.text_field :name
 
-      .group-edit-form__content
-        = f.label :内容：
-        = f.text_area :content
+  .groups-new
+    .groups-new__title
+      %h2 グループ編集
 
-      .proposition-edit-form__btn
-        = f.submit "登録"
+    .groups-new__form
+      = form_with(model: @group, local: true) do |f|
+        - if @group.errors.any?
+          .groups-new__form__errors
+            %h3= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
+            %ul
+              - @group.errors.each do |message|
+                %li= message
+
+        .groups-new__form__name
+          = f.label :グループ名：
+          = f.text_field :name
+
+        .groups-new__form__content
+          = f.label :内容：
+          = f.text_area :content
+
+
+        .groups-new__form__member
+          = f.label :グループメンバーを追加：
+          .groups-new__form__search
+            %input.groups-new__form__input{ name: "keyword", placeholder: "追加したいメンバー名を入力してください", type: "text"}
+          #user-search-result
+
+
+        .groups-new__form__member.clearfix
+          = f.label :追加グループメンバー：
+          #chat-group-users
+          = f.hidden_field :member, name:'group[user_ids][]', value: current_user.id
+          .group-member.clearfix
+            %p.group-member__name= current_user.name
+          - @group.users.each do |user|
+            .group-member.clearfix
+              %p.group-member__name
+                = user.name
+              .user-search-remove.group-member__btn.group-member__btn--remove.js-remove-btn
+                削除
+
+        .groups-new__form__btn
+          = f.submit "登録"
+
+
+
+
+ 

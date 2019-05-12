@@ -10,7 +10,11 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user
+    @users = User.where.not(id: current_user.id ).where( 'name LIKE(?)', "%#{params[:keyword]}%" )
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
@@ -37,7 +41,7 @@ class GroupsController < ApplicationController
 
   def destroy
     group = Group.find(params[:id])
-     group.destroy
+      group.destroy
   end
 
   private
