@@ -1,0 +1,26 @@
+.users{
+  width: 800px;
+  background-color: #EEEEEE;
+  margin: 30px auto;
+  p.users--all-lists{
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: #20B2AA;
+  }
+  &__list{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    .users__list__user{
+      justify-content: center;
+      margin: 10px;
+      display: flex;
+      .users__list__user--name,
+      .users__list__user--email{
+        margin-right: 20px;
+      }
+    }
+  }
+}

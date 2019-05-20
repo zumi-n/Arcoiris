@@ -6,5 +6,14 @@ Rails.application.routes.draw do
   end
   get 'lists' => 'propositions#list'
   resources :groups
-  resources :users, only: [:index, :edit, :update]
+  resources :users, only: [:index, :edit, :update] do
+    collection do
+      get :list
+      get :followlist
+    end
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
 end

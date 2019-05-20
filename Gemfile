@@ -78,3 +78,4 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'jquery-rails'
+gem "acts_as_follower", github: "tcocca/acts_as_follower"

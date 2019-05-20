@@ -1,0 +1,16 @@
+%ul.users__list
+  - users.each do |user|
+    %li.users__list__container
+      .users__list__user
+        .users__list__user--name
+          = user.name
+        .users__list__user--email
+          = user.email
+        - if user.id != current_user.id
+          .users__list__user--follow
+            - unless current_user.following?(user)
+              .action
+                = link_to 'フォローする', follow_user_path(user.id), method: :post, class: "btn-follow", remote: true
+            - else
+              .action
+                = link_to 'フォローを解除する', unfollow_user_path(user.id), method: :post, class: "btn-follow", remote: true
