@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @users = User.where.not(id: current_user.id)
   end
 
+  def followlist
+    @users = User.where.not(id: current_user.id)
+  end
+
 
   def edit
   end
